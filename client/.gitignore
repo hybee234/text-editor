@@ -69,4 +69,4 @@ yarn.lock
 *.xslx
 
 # webpack dist folder
-dist
+#dist/
