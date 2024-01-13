@@ -23,19 +23,15 @@ export const putDb = async (content) => {
 };
 
 // TODO: Add logic for a method that gets all the content from the database
+// Only the value needs to be returned to editor.js (ID isn't required)
 export const getDb = async () => {
-    console.log('GET id:1 from the database');
+    console.log('GET all from the database');
     const jate = await openDB('jate', 1);
     const tx = jate.transaction('jate', 'readonly');
     const store = tx.objectStore('jate');
-    // const request = store.getAll();
-    // const result = await request;
-
-    const result = await store.get(1);
-
-    console.log('result.value', result);
-    // console.log(result);
-    return result;
+    const result = await store.getAll();
+    console.log (result.value)    
+    return result.value;
 };
 
 initdb();
