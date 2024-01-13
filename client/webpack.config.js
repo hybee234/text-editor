@@ -71,6 +71,11 @@ module.exports = () => {
 						}
 					}
 				},
+				//IMAGE
+				{
+					test: /\.(png|svg|jpg|jpeg|gif)$/i,
+					type: 'asset/resource',
+				},			
 			],
 		},
 	};
