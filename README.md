@@ -117,87 +117,41 @@ Screenshot of service worker to enable offline mode
 Screenshot showing the install window of JATE
 <div align="center">
 
-![Screenshot showing the install window of JATE](./assets/images/screenshot2.png)
+![Screenshot showing the install window of JATE](./assets/images/screenshot3.png)
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Installation
 
+JATE is a deployed application available via this link: [JATE](https://hybee-text-editor-d4b54d9f343e.herokuapp.com/)
+
+The below installations steps are only required if you want to run a local copy or contribute to its design (Skip to usage if you just want to make use of the application)
+
 1. Clone or fork the repository
-2. Run the below in console install necessary packages
-    * Express 
-    * Mongoose
+2. Run the below in console install necessary packages    
     
 ```
 npm i
 ```
 3. Once installed you can start the server with the below command in the CLI:
 ```
-npm run dev
+npm run start
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
-As this is purely a backend social-network server, utilise an API development platform like <a href="https://insomnia.rest/">Insomnia </a> to transmit API requests
+JATE is a deployed application available via this link: [JATE](https://hybee-text-editor-d4b54d9f343e.herokuapp.com/)
 
-Available APIs are as followeds
+When launched, this application will present with the editor and display any previously saved text.
 
-| Users                   | API                                      | 
-| ----------------------- | ---------------------------------------- | 
-| GET all users:          | http://localhost:3001/api/users/         | 
-| GET one user:           | http://localhost:3001/api/users/:userId  | 
-| POST one user:          | http://localhost:3001/api/users          | 
-| PUT one user by ID:     | http://localhost:3001/api/users/:userId  | 
-| DELETE one user by ID:  | http://localhost:3001/api/users/:userId  | 
+Text that you type will be saved to your browser so that when you next return you'll be able to continue from where you left off.
 
-Category POST/PUT sample JSON body:
-```
-{
-	"username" : "User123",
-	"email" : "User@email.com"
-}
-```
-** GET ONE user will also obtain detail information about thoughts and reactions
-** DELETE one user will also delete thoughts authored by that user
-
-*** UP TO HERE ***
-
-| Thoughts                  | API                                    		| 
-| ------------------------- | --------------------------------------------- | 
-| GET all thoughts:         | http://localhost:3001/api/thoughts/           | 
-| GET one Thought by ID:    | http://localhost:3001/api/thoughts/:thoughtId | 
-| POST one Thought          | http://localhost:3001/api/thoughts/    		|  
-| PUT one Thought by ID:    | http://localhost:3001/api/thoughts/:thoughtId |
-| DELETE one Thought by ID: | http://localhost:3001/api/thoughts/:thoughtId |
-
-Thought POST/PUT sample JSON body:
- ```
-{
-	"thoughtText" : "What a lovely day today",
-	"username" : "User123",
-	"userId" : "659aba9d2cec9c8652e7b021"
-}
- ```
-
-| Reactions                  | API                                                                 |
-| -------------------------- | ------------------------------------------------------------------- |
-| POST one Reaction     	 | http://localhost:3001/api/thoughts/:thoughtId/reactions/            |
-| DELETE one Reaction by ID: | http://localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId |
-
-Tag POST/PUT sample JSON body:
-```
-{
-	"reactionBody" : "This is a wonderful thought!",
-	"username" : "User234"
-}
-```
-| Friends                    | API                                                       |
-| -------------------------- | --------------------------------------------------------- |
-| POST one Friend by ID      | http://localhost:3001/api/users/:userId/friends/:friendId |
-| DELETE one Reaction by ID: | http://localhost:3001/api/users/:userId/friends/:friendId |
+Some notable features:
+* The application will continue to work if your internet drops out
+* You have the option to install the application onto your device for easier access.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
     
@@ -228,10 +182,8 @@ Automated Test scripts have not been developed for this application
 * Javascript
 * Node.js
 * Node Package Manager (NPM)
-* MongoDB
-* Mongoose
 * Express
-* Insomnia
+* Webpack
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
