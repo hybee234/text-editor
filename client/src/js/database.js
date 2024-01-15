@@ -4,11 +4,11 @@ const initdb = async () =>
     openDB('jate', 1, {        
         upgrade(db) {
         if (db.objectStoreNames.contains('jate')) {
-            console.log('jate database already exists');
+            console.log('JATE database already exists');
             return;
         }
         db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
-        console.log('jate database created');
+        console.log('JATE database created');
         },
     });
 
@@ -19,13 +19,14 @@ export const putDb = async (content) => {
     const tx = jate.transaction('jate', 'readwrite');
     const store = tx.objectStore('jate');
     const result = await store.put({ id: 1, jate: content });
-    console.log('Data saved to the database', result);
+    console.log('IndexDB Updated:', content);
+    
 };
 
 // TODO: Add logic for a method that gets all the content from the database
 // Only the value needs to be returned to editor.js (ID isn't required)
 export const getDb = async () => {
-    console.log('GET all from the database');
+    console.log('GET all from IndexDB');
     const jate = await openDB('jate', 1);
     const tx = jate.transaction('jate', 'readonly');
     const store = tx.objectStore('jate');
