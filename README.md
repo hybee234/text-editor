@@ -113,7 +113,7 @@ Screenshot of service worker to enable offline mode
 
 ![Screenshot of service worker to enable offline mode](./assets/images/screenshot2.png)
 </div>
-
+  
 Screenshot showing the install window of JATE
 <div align="center">
 
