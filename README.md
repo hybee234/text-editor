@@ -105,13 +105,19 @@ THEN I should have proper build scripts for a webpack application
 Screenshot of JATE and indexDB showing text being stored
 <div align="center">
 
-![Screenshot of the response to GET all users](./assets/images/screenshot1.png)
+![Screenshot of JATE and indexDB showing text being stored](./assets/images/screenshot1.png)
 </div>
 
-Screenshot of response to a GET request for all products
+Screenshot of service worker to enable offline mode
 <div align="center">
 
-![Screenshot of the response to GET all thoughts](./src/images/screenshot2.png)
+![Screenshot of service worker to enable offline mode](./assets/images/screenshot2.png)
+</div>
+
+Screenshot showing the install window of JATE
+<div align="center">
+
+![Screenshot showing the install window of JATE](./assets/images/screenshot2.png)
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
