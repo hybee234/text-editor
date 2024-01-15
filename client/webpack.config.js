@@ -3,12 +3,8 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
-// const { GenerateSW } = require('workbox-webpack-plugin'); // [HL]
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
-
-
-
 
 module.exports = () => {
 	return {
@@ -37,7 +33,6 @@ module.exports = () => {
 				short_name: 'JATE',
 				description: 'JATE Description!',
 				background_color: '#225ca3',
-				// background_color: '#7eb4e2',
 				theme_color: '#225ca3',
 				start_url: './',
 				publicPath: './',
@@ -46,11 +41,24 @@ module.exports = () => {
 						src: path.resolve('src/images/logo.png'),
 						sizes: [96, 128, 192, 256, 384, 512],
 						destination: path.join('assets', 'icons'),
-						// options: {
-						// 	name: '[path][name].[ext]',
-						// }
 					},
 				],
+				screenshots: [
+					{
+						src: ('./7ca8f4f01e321aba1194.png'),
+						sizes: "698x698",
+						type: "image/png",
+						form_factor: "wide",
+						label: "JATE screenshot",
+					},
+					{
+						src: ('./7ca8f4f01e321aba1194.png'),
+						sizes: "698x698",
+						type: "image/png",
+						// form_factor: "wide",
+						label: "Jate screenshot",
+					}
+				]
 			}),
 
 			// Generate Service Worker
@@ -63,11 +71,17 @@ module.exports = () => {
 
 		module: {
 			rules: [
-				//CSS
+				// //CSS
 				{
 					test: /\.css$/i,
 					use: [MiniCssExtractPlugin.loader, "css-loader"]
 				}, 
+				//IMAGES
+				{
+					test: /\.(png|svg|jpg|jpeg|gif)$/i,
+					type: 'asset/resource',
+				},
+
 				//BABEL
 				{
 					test: /\.m?js$/,
