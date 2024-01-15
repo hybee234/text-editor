@@ -2,12 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
-// const { InjectManifest } = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
+// const { GenerateSW } = require('workbox-webpack-plugin'); // [HL]
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 
 
-const { GenerateSW } = require('workbox-webpack-plugin'); // [HL]
+
 
 module.exports = () => {
 	return {
@@ -24,23 +25,22 @@ module.exports = () => {
 			// Automatically generates link in HTML file
 			new HtmlWebpackPlugin({
 				template: './index.html',
-				title: 'Text Editor (Title)',
+				title: 'J.A.T.E',
 			}),
 
 
 			new MiniCssExtractPlugin(),
-			
-			// Generate Service Worker
-			new GenerateSW(),  // [HL]
-			
+	
+
 			// Generate Manifest
 			new WebpackPwaManifest({
 				filename: 'manifest.json',
-				name: 'JATE',
+				name: 'JATE - Text Editor Short',
 				short_name: 'JATE',
-				description: 'Just a text editor!',
-				background_color: '#7eb4e2',
-				theme_color: '#7eb4e2',
+				description: 'JATE Description!',
+				background_color: '#225ca3',
+				// background_color: '#7eb4e2',
+				theme_color: '#225ca3',
 				start_url: './',
 				publicPath: './',
 				icons: [
@@ -48,9 +48,19 @@ module.exports = () => {
 						src: path.resolve('src/images/logo.png'),
 						sizes: [96, 128, 192, 256, 384, 512],
 						destination: path.join('assets', 'icons'),
+						// options: {
+						// 	name: '[path][name].[ext]',
+						// }
 					},
 				],
 			}),
+
+			// Generate Service Worker
+			new InjectManifest({
+				swSrc: './src-sw.js',
+				swDest: 'service-worker.js',
+			}),
+
 		],
 
 		module: {
@@ -75,6 +85,13 @@ module.exports = () => {
 				// {
 				// 	test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				// 	type: 'asset/resource',
+				// 	use: [
+				// 		{
+				// 			loader: 'file-loader',
+				// 			// options: {
+				// 			// 	name: isDev ? '[path][name].[ext]' : '[hash].[ext]',
+				// 			// }
+				// 		}]
 				// },			
 			],
 		},
