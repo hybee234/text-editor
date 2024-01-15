@@ -28,10 +28,10 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
 
-//D
 // Set up asset cache
 registerRoute(
-	({ request }) => request.destination === 'image',
+    ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+    // ({ request }) => request.destination === 'image',
 	new CacheFirst({
 		cacheName: 'assets',
 		plugins: [
@@ -45,5 +45,3 @@ registerRoute(
 		],
 	})
 );
-
-///D
