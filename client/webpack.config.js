@@ -28,9 +28,7 @@ module.exports = () => {
 				title: 'J.A.T.E',
 			}),
 
-
 			new MiniCssExtractPlugin(),
-	
 
 			// Generate Manifest
 			new WebpackPwaManifest({
@@ -80,19 +78,7 @@ module.exports = () => {
 						presets: ['@babel/preset-env']
 						}
 					}
-				},
-				//IMAGE
-				// {
-				// 	test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				// 	type: 'asset/resource',
-				// 	use: [
-				// 		{
-				// 			loader: 'file-loader',
-				// 			// options: {
-				// 			// 	name: isDev ? '[path][name].[ext]' : '[hash].[ext]',
-				// 			// }
-				// 		}]
-				// },			
+				},			
 			],
 		},
 	};
